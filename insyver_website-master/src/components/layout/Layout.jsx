@@ -26,11 +26,11 @@ const Layout = ({ children, setPage, page, setServiceId }) => {
         { id: 'contact', label: 'Contact' },
     ];
     const socialIcons = [
-            { icon: Instagram, link: "https://www.instagram.com/insyvertech/" },
-            { icon: Facebook, link: "https://www.facebook.com/insyvertech/" },
-            { icon: FaXTwitter, link: "https://x.com/insyvertech/" },
-            { icon: Linkedin, link: "https://www.linkedin.com/in/insyver-tech/" },
-            { icon: FaGoogle, link: "https://share.google/CINoZiM72yQDYc2GG" }
+        { icon: Instagram, link: "https://www.instagram.com/insyvertech/" },
+        { icon: Facebook, link: "https://www.facebook.com/insyvertech/" },
+        { icon: FaXTwitter, link: "https://x.com/insyvertech/" },
+        { icon: Linkedin, link: "https://www.linkedin.com/in/insyver-tech/" },
+        { icon: FaGoogle, link: "https://maps.app.goo.gl/spM5wTecuHDg4k219" }
     ];
 
 
@@ -177,16 +177,16 @@ const Layout = ({ children, setPage, page, setServiceId }) => {
                                     </a>
                                 ))} */}
                                 {socialIcons.map(({ icon: Icon, link }, i) => (
-                                        <a
-                                            key={i}
-                                            href={link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-slate-400 hover:text-blue-600 transition-all duration-300 hover:-translate-y-1"
-                                        >
-                                            <Icon className="w-5 h-5" />
-                                        </a>
-                                    ))}
+                                    <a
+                                        key={i}
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-slate-400 hover:text-blue-600 transition-all duration-300 hover:-translate-y-1"
+                                    >
+                                        <Icon className="w-5 h-5" />
+                                    </a>
+                                ))}
 
                             </div>
                         </div>
