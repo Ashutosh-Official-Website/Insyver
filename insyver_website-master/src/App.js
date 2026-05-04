@@ -52,7 +52,7 @@ export default function App() {
 
       {!loading && (
         <ThemeProvider>
-          <Layout setPage={setCurrentPage} page={currentPage}>
+          <Layout setPage={setCurrentPage} page={currentPage} setServiceId={setCurrentServiceId}>
             {/* Render Pages based on state */}
             {currentPage === 'home' && <Home setPage={setCurrentPage} setServiceId={setCurrentServiceId} />}
             {currentPage === 'about' && <About setPage={setCurrentPage} />}

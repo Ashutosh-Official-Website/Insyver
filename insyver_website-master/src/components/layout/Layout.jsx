@@ -8,7 +8,7 @@ import { SERVICES_DATA } from '../../data/content';
 
 const LOGO_IMG_SRC = "/assets/transparent_main_logo_(2).png";
 
-const Layout = ({ children, setPage, page }) => {
+const Layout = ({ children, setPage, page, setServiceId }) => {
     const { isDark, toggleTheme } = useTheme();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -204,7 +204,7 @@ const Layout = ({ children, setPage, page }) => {
                             <h4 className={`text-center font-bold  mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>Services</h4>
                             <ul className={`grid grid-cols-2 gap-y-3 gap-x-3 ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
                                 {SERVICES_DATA.map((service, i) => (
-                                    <li key={i} className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => setPage('services')}>{service.title}</li>
+                                    <li key={i} className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => { setServiceId(service.id); setPage('service-detail'); window.scrollTo(0, 0); }}>{service.title}</li>
                                 ))}
                             </ul>
                         </div>
