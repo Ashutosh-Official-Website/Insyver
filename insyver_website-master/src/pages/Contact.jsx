@@ -58,7 +58,7 @@ const Contact = () => {
             template_id: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
             user_id: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
             template_params: {
-                from_name: formData.name,
+                fullName: formData.name,
                 company_name: formData.company || "Not Provided",
                 from_email: formData.email,
                 phone: formData.phone,

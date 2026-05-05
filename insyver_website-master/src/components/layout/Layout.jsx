@@ -3,11 +3,12 @@ import { Menu, X, Sun, Moon, Facebook, Linkedin, Instagram, MapPin, Phone, Mail 
 import { useTheme } from '../../context/ThemeContext';
 import Button from '../ui/Button';
 import { FaXTwitter } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa";
 import { SERVICES_DATA } from '../../data/content';
 
 const LOGO_IMG_SRC = "/assets/transparent_main_logo_(2).png";
 
-const Layout = ({ children, setPage, page }) => {
+const Layout = ({ children, setPage, page, setServiceId }) => {
     const { isDark, toggleTheme } = useTheme();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -25,10 +26,11 @@ const Layout = ({ children, setPage, page }) => {
         { id: 'contact', label: 'Contact' },
     ];
     const socialIcons = [
-        Facebook,
-        Linkedin,
-        FaXTwitter,
-        Instagram
+        { icon: Instagram, link: "https://www.instagram.com/insyvertech/" },
+        { icon: Facebook, link: "https://www.facebook.com/insyvertech/" },
+        { icon: FaXTwitter, link: "https://x.com/insyvertech/" },
+        { icon: Linkedin, link: "https://www.linkedin.com/in/insyver-tech/" },
+        { icon: FaGoogle, link: "https://maps.app.goo.gl/spM5wTecuHDg4k219" }
     ];
 
 
@@ -169,8 +171,19 @@ const Layout = ({ children, setPage, page }) => {
                                 {/* {[Facebook, Linkedin, Twitter, Instagram].map((Icon, i) => (
                                     <a key={i} href="/" className={`transition-all duration-300 hover:-translate-y-1 ${isDark ? 'text-slate-500 hover:text-white' : 'text-slate-400 hover:text-blue-600'}`}><Icon className="w-5 h-5" /></a>
                                 ))} */}
-                                {socialIcons.map((Icon, i) => (
+                                {/* {socialIcons.map((Icon, i) => (
                                     <a key={i} href="/" className="transition-all duration-300 hover:-translate-y-1">
+                                        <Icon className="w-5 h-5" />
+                                    </a>
+                                ))} */}
+                                {socialIcons.map(({ icon: Icon, link }, i) => (
+                                    <a
+                                        key={i}
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-slate-400 hover:text-blue-600 transition-all duration-300 hover:-translate-y-1"
+                                    >
                                         <Icon className="w-5 h-5" />
                                     </a>
                                 ))}
@@ -191,7 +204,7 @@ const Layout = ({ children, setPage, page }) => {
                             <h4 className={`text-center font-bold  mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>Services</h4>
                             <ul className={`grid grid-cols-2 gap-y-3 gap-x-3 ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
                                 {SERVICES_DATA.map((service, i) => (
-                                    <li key={i} className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => setPage('services')}>{service.title}</li>
+                                    <li key={i} className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => { setServiceId(service.id); setPage('service-detail'); window.scrollTo(0, 0); }}>{service.title}</li>
                                 ))}
                             </ul>
                         </div>
